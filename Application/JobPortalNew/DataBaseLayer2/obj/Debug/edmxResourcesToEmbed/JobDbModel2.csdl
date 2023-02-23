@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="jb3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CompanyTable">
+    <Key>
+      <PropertyRef Name="CompanyID" />
+    </Key>
+    <Property Name="CompanyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Logo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UserTable" Relationship="Self.FK__CompanyTa__UserI__2B3F6F97" FromRole="CompanyTable" ToRole="UserTable" />
+    <NavigationProperty Name="PostJobTables" Relationship="Self.FK__PostJobTa__Compa__2F10007B" FromRole="CompanyTable" ToRole="PostJobTable" />
+  </EntityType>
+  <EntityType Name="CountryTable">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Name="CountryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EmployeeTables" Relationship="Self.FK__EmployeeT__Count__267ABA7A" FromRole="CountryTable" ToRole="EmployeeTable" />
+  </EntityType>
+  <EntityType Name="EmployeeTable">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="JobCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FNIC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CountryID" Type="Int32" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Photo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PermanentAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JobReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CountryTable" Relationship="Self.FK__EmployeeT__Count__267ABA7A" FromRole="EmployeeTable" ToRole="CountryTable" />
+    <NavigationProperty Name="JobCategoryTable" Relationship="Self.FK__EmployeeT__JobCa__25869641" FromRole="EmployeeTable" ToRole="JobCategoryTable" />
+    <NavigationProperty Name="UserTable" Relationship="Self.FK__EmployeeT__UserI__24927208" FromRole="EmployeeTable" ToRole="UserTable" />
+    <NavigationProperty Name="LanguageTables" Relationship="Self.FK__LanguageT__Emplo__412EB0B6" FromRole="EmployeeTable" ToRole="LanguageTable" />
+  </EntityType>
+  <EntityType Name="JobCategoryTable">
+    <Key>
+      <PropertyRef Name="JobCategoryID" />
+    </Key>
+    <Property Name="JobCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobCategory" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EmployeeTables" Relationship="Self.FK__EmployeeT__JobCa__25869641" FromRole="JobCategoryTable" ToRole="EmployeeTable" />
+    <NavigationProperty Name="PostJobTables" Relationship="Self.FK__PostJobTa__JobCa__31EC6D26" FromRole="JobCategoryTable" ToRole="PostJobTable" />
+  </EntityType>
+  <EntityType Name="JobNatureTable">
+    <Key>
+      <PropertyRef Name="JobNatureID" />
+    </Key>
+    <Property Name="JobNatureID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobNature" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PostJobTables" Relationship="Self.FK_PostJobTable_JobNatureTable" FromRole="JobNatureTable" ToRole="PostJobTable" />
+  </EntityType>
+  <EntityType Name="JobStatusTable">
+    <Key>
+      <PropertyRef Name="JobStatusID" />
+    </Key>
+    <Property Name="JobStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="statusMessage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PostJobTables" Relationship="Self.FK__PostJobTa__JobSt__30F848ED" FromRole="JobStatusTable" ToRole="PostJobTable" />
+  </EntityType>
+  <EntityType Name="LanguageTable">
+    <Key>
+      <PropertyRef Name="LanguageID" />
+    </Key>
+    <Property Name="LanguageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="LanguageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Proficiency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EmployeeTable" Relationship="Self.FK__LanguageT__Emplo__412EB0B6" FromRole="LanguageTable" ToRole="EmployeeTable" />
+  </EntityType>
+  <EntityType Name="PostJobTable">
+    <Key>
+      <PropertyRef Name="PostJobID" />
+    </Key>
+    <Property Name="PostJobID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyID" Type="Int32" Nullable="false" />
+    <Property Name="JobCategoryID" Type="Int32" Nullable="false" />
+    <Property Name="Job_Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Job_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MinSalary" Type="Int32" Nullable="false" />
+    <Property Name="MixSalary" Type="Int32" Nullable="false" />
+    <Property Name="Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Vacancey" Type="Int32" Nullable="false" />
+    <Property Name="JobNatureID" Type="Int32" Nullable="false" />
+    <Property Name="PostDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ApplicationLastDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastDate" Type="Int32" Nullable="false" />
+    <Property Name="JobRequirementID" Type="Int32" Nullable="false" />
+    <Property Name="JobStatusID" Type="Int32" Nullable="false" />
+    <Property Name="WebUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CompanyTable" Relationship="Self.FK__PostJobTa__Compa__2F10007B" FromRole="PostJobTable" ToRole="CompanyTable" />
+    <NavigationProperty Name="JobCategoryTable" Relationship="Self.FK__PostJobTa__JobCa__31EC6D26" FromRole="PostJobTable" ToRole="JobCategoryTable" />
+    <NavigationProperty Name="JobNatureTable" Relationship="Self.FK_PostJobTable_JobNatureTable" FromRole="PostJobTable" ToRole="JobNatureTable" />
+    <NavigationProperty Name="JobStatusTable" Relationship="Self.FK__PostJobTa__JobSt__30F848ED" FromRole="PostJobTable" ToRole="JobStatusTable" />
+    <NavigationProperty Name="UserTable" Relationship="Self.FK__PostJobTa__UserI__2E1BDC42" FromRole="PostJobTable" ToRole="UserTable" />
+    <NavigationProperty Name="JobRequirementDetailTables" Relationship="jb3Model.FK_JobRequirementDetailTable_PostJobTable" FromRole="PostJobTable" ToRole="JobRequirementDetailTable" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CompanyTables" Relationship="Self.FK__CompanyTa__UserI__2B3F6F97" FromRole="UserTable" ToRole="CompanyTable" />
+    <NavigationProperty Name="EmployeeTables" Relationship="Self.FK__EmployeeT__UserI__24927208" FromRole="UserTable" ToRole="EmployeeTable" />
+    <NavigationProperty Name="PostJobTables" Relationship="Self.FK__PostJobTa__UserI__2E1BDC42" FromRole="UserTable" ToRole="PostJobTable" />
+    <NavigationProperty Name="UserTypeTable" Relationship="Self.FK__UserTable__UserT__164452B1" FromRole="UserTable" ToRole="UserTypeTable" />
+  </EntityType>
+  <EntityType Name="UserTypeTable">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="UserTables" Relationship="Self.FK__UserTable__UserT__164452B1" FromRole="UserTypeTable" ToRole="UserTable" />
+  </EntityType>
+  <Association Name="FK__CompanyTa__UserI__2B3F6F97">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="CompanyTable" Type="Self.CompanyTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="CompanyTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PostJobTa__Compa__2F10007B">
+    <End Role="CompanyTable" Type="Self.CompanyTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CompanyTable">
+        <PropertyRef Name="CompanyID" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="CompanyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeT__Count__267ABA7A">
+    <End Role="CountryTable" Type="Self.CountryTable" Multiplicity="1" />
+    <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CountryTable">
+        <PropertyRef Name="CountryID" />
+      </Principal>
+      <Dependent Role="EmployeeTable">
+        <PropertyRef Name="CountryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeT__JobCa__25869641">
+    <End Role="JobCategoryTable" Type="Self.JobCategoryTable" Multiplicity="1" />
+    <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobCategoryTable">
+        <PropertyRef Name="JobCategoryID" />
+      </Principal>
+      <Dependent Role="EmployeeTable">
+        <PropertyRef Name="JobCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeT__UserI__24927208">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="EmployeeTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LanguageT__Emplo__412EB0B6">
+    <End Role="EmployeeTable" Type="Self.EmployeeTable" Multiplicity="1" />
+    <End Role="LanguageTable" Type="Self.LanguageTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeTable">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="LanguageTable">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PostJobTa__JobCa__31EC6D26">
+    <End Role="JobCategoryTable" Type="Self.JobCategoryTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobCategoryTable">
+        <PropertyRef Name="JobCategoryID" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="JobCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostJobTable_JobNatureTable">
+    <End Role="JobNatureTable" Type="Self.JobNatureTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobNatureTable">
+        <PropertyRef Name="JobNatureID" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="JobNatureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PostJobTa__JobSt__30F848ED">
+    <End Role="JobStatusTable" Type="Self.JobStatusTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobStatusTable">
+        <PropertyRef Name="JobStatusID" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="JobStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PostJobTa__UserI__2E1BDC42">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="PostJobTable" Type="Self.PostJobTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="PostJobTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserTable__UserT__164452B1">
+    <End Role="UserTypeTable" Type="Self.UserTypeTable" Multiplicity="1" />
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTypeTable">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="jb3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CompanyTables" EntityType="Self.CompanyTable" />
+    <EntitySet Name="CountryTables" EntityType="Self.CountryTable" />
+    <EntitySet Name="EmployeeTables" EntityType="Self.EmployeeTable" />
+    <EntitySet Name="JobCategoryTables" EntityType="Self.JobCategoryTable" />
+    <EntitySet Name="JobNatureTables" EntityType="Self.JobNatureTable" />
+    <EntitySet Name="JobStatusTables" EntityType="Self.JobStatusTable" />
+    <EntitySet Name="LanguageTables" EntityType="Self.LanguageTable" />
+    <EntitySet Name="PostJobTables" EntityType="Self.PostJobTable" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="UserTables" EntityType="Self.UserTable" />
+    <EntitySet Name="UserTypeTables" EntityType="Self.UserTypeTable" />
+    <AssociationSet Name="FK__CompanyTa__UserI__2B3F6F97" Association="Self.FK__CompanyTa__UserI__2B3F6F97">
+      <End Role="UserTable" EntitySet="UserTables" />
+      <End Role="CompanyTable" EntitySet="CompanyTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PostJobTa__Compa__2F10007B" Association="Self.FK__PostJobTa__Compa__2F10007B">
+      <End Role="CompanyTable" EntitySet="CompanyTables" />
+      <End Role="PostJobTable" EntitySet="PostJobTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeT__Count__267ABA7A" Association="Self.FK__EmployeeT__Count__267ABA7A">
+      <End Role="CountryTable" EntitySet="CountryTables" />
+      <End Role="EmployeeTable" EntitySet="EmployeeTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeT__JobCa__25869641" Association="Self.FK__EmployeeT__JobCa__25869641">
+      <End Role="JobCategoryTable" EntitySet="JobCategoryTables" />
+      <End Role="EmployeeTable" EntitySet="EmployeeTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeT__UserI__24927208" Association="Self.FK__EmployeeT__UserI__24927208">
+      <End Role="UserTable" EntitySet="UserTables" />
+      <End Role="EmployeeTable" EntitySet="EmployeeTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LanguageT__Emplo__412EB0B6" Association="Self.FK__LanguageT__Emplo__412EB0B6">
+      <End Role="EmployeeTable" EntitySet="EmployeeTables" />
+      <End Role="LanguageTable" EntitySet="LanguageTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PostJobTa__JobCa__31EC6D26" Association="Self.FK__PostJobTa__JobCa__31EC6D26">
+      <End Role="JobCategoryTable" EntitySet="JobCategoryTables" />
+      <End Role="PostJobTable" EntitySet="PostJobTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostJobTable_JobNatureTable" Association="Self.FK_PostJobTable_JobNatureTable">
+      <End Role="JobNatureTable" EntitySet="JobNatureTables" />
+      <End Role="PostJobTable" EntitySet="PostJobTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PostJobTa__JobSt__30F848ED" Association="Self.FK__PostJobTa__JobSt__30F848ED">
+      <End Role="JobStatusTable" EntitySet="JobStatusTables" />
+      <End Role="PostJobTable" EntitySet="PostJobTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PostJobTa__UserI__2E1BDC42" Association="Self.FK__PostJobTa__UserI__2E1BDC42">
+      <End Role="UserTable" EntitySet="UserTables" />
+      <End Role="PostJobTable" EntitySet="PostJobTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserTable__UserT__164452B1" Association="Self.FK__UserTable__UserT__164452B1">
+      <End Role="UserTypeTable" EntitySet="UserTypeTables" />
+      <End Role="UserTable" EntitySet="UserTables" />
+    </AssociationSet>
+    <EntitySet Name="JobRequirementTables" EntityType="jb3Model.JobRequirementTable" />
+    <EntitySet Name="JobRequirementDetailTables" EntityType="jb3Model.JobRequirementDetailTable" />
+    <AssociationSet Name="FK_JobRequirementDetailTable_JobRequirementTable" Association="jb3Model.FK_JobRequirementDetailTable_JobRequirementTable">
+      <End Role="JobRequirementTable" EntitySet="JobRequirementTables" />
+      <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTables" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JobRequirementDetailTable_PostJobTable" Association="jb3Model.FK_JobRequirementDetailTable_PostJobTable">
+      <End Role="PostJobTable" EntitySet="PostJobTables" />
+      <End Role="JobRequirementDetailTable" EntitySet="JobRequirementDetailTables" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="JobRequirementTable">
+    <Key>
+      <PropertyRef Name="JobRequirementID" />
+    </Key>
+    <Property Name="JobRequirementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobRequirementTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="JobRequirementDetailTables" Relationship="jb3Model.FK_JobRequirementDetailTable_JobRequirementTable" FromRole="JobRequirementTable" ToRole="JobRequirementDetailTable" />
+  </EntityType>
+  <EntityType Name="JobRequirementDetailTable">
+    <Key>
+      <PropertyRef Name="JobRequirementDetailID" />
+    </Key>
+    <Property Name="JobRequirementDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobRequirementDetails" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JobRequirementID" Type="Int32" Nullable="false" />
+    <Property Name="PostJobID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="JobRequirementTable" Relationship="jb3Model.FK_JobRequirementDetailTable_JobRequirementTable" FromRole="JobRequirementDetailTable" ToRole="JobRequirementTable" />
+    <NavigationProperty Name="PostJobTable" Relationship="jb3Model.FK_JobRequirementDetailTable_PostJobTable" FromRole="JobRequirementDetailTable" ToRole="PostJobTable" />
+  </EntityType>
+  <Association Name="FK_JobRequirementDetailTable_JobRequirementTable">
+    <End Type="jb3Model.JobRequirementTable" Role="JobRequirementTable" Multiplicity="1" />
+    <End Type="jb3Model.JobRequirementDetailTable" Role="JobRequirementDetailTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobRequirementTable">
+        <PropertyRef Name="JobRequirementID" />
+      </Principal>
+      <Dependent Role="JobRequirementDetailTable">
+        <PropertyRef Name="JobRequirementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JobRequirementDetailTable_PostJobTable">
+    <End Type="jb3Model.PostJobTable" Role="PostJobTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="jb3Model.JobRequirementDetailTable" Role="JobRequirementDetailTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PostJobTable">
+        <PropertyRef Name="PostJobID" />
+      </Principal>
+      <Dependent Role="JobRequirementDetailTable">
+        <PropertyRef Name="PostJobID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

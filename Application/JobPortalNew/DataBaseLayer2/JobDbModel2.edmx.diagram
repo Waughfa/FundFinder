@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3deb56c3cbf5412f822fddd0970be57f" Name="Diagram1">
+        <EntityTypeShape EntityType="jb3Model.CompanyTable" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.CountryTable" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.EmployeeTable" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.JobCategoryTable" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.JobNatureTable" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.JobStatusTable" Width="1.5" PointX="3.875" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.LanguageTable" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.PostJobTable" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.UserTable" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="jb3Model.UserTypeTable" Width="1.5" PointX="1.5" PointY="14.25" IsExpanded="true" />
+        <AssociationConnector Association="jb3Model.FK__CompanyTa__UserI__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__PostJobTa__Compa__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__EmployeeT__Count__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__EmployeeT__JobCa__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__EmployeeT__UserI__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__LanguageT__Emplo__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__PostJobTa__JobCa__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK_PostJobTable_JobNatureTable" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__PostJobTa__JobSt__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__PostJobTa__UserI__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="jb3Model.FK__UserTable__UserT__164452B1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="jb3Model.JobRequirementTable" Width="1.5" PointX="6" PointY="14.125" />
+        <EntityTypeShape EntityType="jb3Model.JobRequirementDetailTable" Width="1.5" PointX="8.25" PointY="8.875" />
+        <AssociationConnector Association="jb3Model.FK_JobRequirementDetailTable_JobRequirementTable" />
+        <AssociationConnector Association="jb3Model.FK_JobRequirementDetailTable_PostJobTable" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

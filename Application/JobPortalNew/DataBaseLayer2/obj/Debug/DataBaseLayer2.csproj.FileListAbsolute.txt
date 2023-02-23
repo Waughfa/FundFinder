@@ -1,0 +1,12 @@
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\bin\Debug\DataBaseLayer2.dll
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\bin\Debug\DataBaseLayer2.pdb
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\obj\Debug\DataBaseLayer2.csproj.AssemblyReference.cache
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\obj\Debug\DataBaseLayer2.csproj.CoreCompileInputs.cache
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\obj\Debug\DataBaseLayer2.dll
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\obj\Debug\DataBaseLayer2.pdb
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\bin\Debug\DataBaseLayer2.dll.config
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\bin\Debug\EntityFramework.dll
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\bin\Debug\EntityFramework.SqlServer.dll
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\bin\Debug\EntityFramework.xml
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\bin\Debug\EntityFramework.SqlServer.xml
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer2\obj\Debug\DataBaseLayer2.csproj.CopyComplete

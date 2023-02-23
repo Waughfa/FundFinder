@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DataBaseLayer2.PostJobTable>
+
+@{
+    ViewBag.Title = "Contact Company Pending Jobs";
+}
+
+<h2>Contact Company Pending Requests</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Job_Title)*@
+            Post Title
+        </th>
+        <th>
+            Email Address User
+        </th>
+
+        <th>
+            Contact Number User
+        </th>
+        <th>
+            Email Address Corporate
+        </th>
+        <th>
+            Contact Number User
+        </th>
+        <th>
+                Action for Post
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job_Title)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.UserTable.EmailAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserTable.ContactNo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyTable.EmailAddress)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyTable.ContactNo)
+            </td>
+
+
+            <td>
+                @Html.ActionLink("View", "JobDetails", new { id = item.PostJobID }, new { @class = "genric-btn danger circle" })
+                @Html.ActionLink("Delete", "DeleteJobPostFromContact", new { id = item.PostJobID }, new { @class = "genric-btn danger circle" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DataBaseLayer2.PostJobTable>
+
+@{
+    ViewBag.Title = "CompanyJobsList";
+}
+
+<h2>All Project Posts</h2>
+
+<p>
+     @Html.ActionLink("Add Project Post", "PostJob", "Job", null, new { @class = "btn btn-default", @style = "float:left" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.Job_Title)*@
+            Post Title
+        </th>
+        <th>
+            Min-Max Fund
+        </th>
+
+        <th>
+            location
+        </th>
+        
+        <th>
+            Post Date
+        </th>
+        <th>
+            Fund Deadline
+        </th>
+
+
+        <th>
+            Category
+        </th>
+       
+        <th>
+            Status
+        </th>
+
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Job_Title)
+        </td>
+        
+        <td>
+            $ @item.MinSalary - @item.MixSalary
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.PostDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationLastDate)
+        </td>
+        
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.JobCategoryTable.JobCategory)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.JobStatusTable.JobStatus)
+        </td>
+       
+        <td>
+            @Html.ActionLink("View", "JobDetails", new { id = item.PostJobID }, new { @class = "genric-btn danger circle" })
+            @Html.ActionLink("+ Details", "AddRequirements", new { id = item.PostJobID }, new { @class = "genric-btn info circle" })
+            @Html.ActionLink("Delete", "DeleteJobPost", new { id = item.PostJobID }, new { @class = "genric-btn danger circle" })
+        </td>
+    </tr>
+}
+
+</table>

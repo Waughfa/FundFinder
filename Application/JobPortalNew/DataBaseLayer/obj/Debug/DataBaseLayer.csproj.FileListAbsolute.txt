@@ -1,0 +1,6 @@
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer\bin\Debug\DataBaseLayer.dll
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer\bin\Debug\DataBaseLayer.pdb
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer\obj\Debug\DataBaseLayer.csproj.AssemblyReference.cache
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer\obj\Debug\DataBaseLayer.csproj.CoreCompileInputs.cache
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer\obj\Debug\DataBaseLayer.dll
+F:\3.2\ProjectWork\Legend Calls\Application\JobPortalNew\DataBaseLayer\obj\Debug\DataBaseLayer.pdb
